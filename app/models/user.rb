@@ -9,4 +9,17 @@ class User < ActiveRecord::Base
   validates :email, :presence => true,
                     :format   => { :with => email_regexp},
                     :uniqueness => {:case_sensitive => false}
+                    
+  has_many :groups, :foreign_key => "follower_id", 
+                    :dependent => destroy
+                    
+  def following?    
+  end
+  
+  def follow!
+  end
+  
+  def unfollow!
+  end
+
 end
