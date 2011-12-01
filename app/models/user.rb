@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :groups, :foreign_key => "follower_id", 
                     :dependent => destroy
                     
+  has_many :microposts
+                    
   def following?    
   end
   
